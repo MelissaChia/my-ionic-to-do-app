@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="closePressed()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>Insert To Do</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Task</ion-label>
+    <ion-input [(ngModel)]="data.name"> </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Description</ion-label>
+    <ion-input [(ngModel)]="data.description"> </ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Place</ion-label>
+    <ion-input [(ngModel)]="data.place"> </ion-input>
+  </ion-item>
+  <ion-button expand="block" color="dark" (click)="addPressed()"
+    >Add</ion-button
+  >
+</ion-content>

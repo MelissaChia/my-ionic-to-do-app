@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>
+      To Do!
+    </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button (click)="presentModal()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let todo of todos" routerLink="/detail/{{ todo.id }}">
+      <ion-avatar slot="start">
+        <img src="assets/tick.png" *ngIf="todo.completed" />
+        <img src="assets/wrong.png" *ngIf="!todo.completed" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ todo.name }}</h2>
+        <h3>
+          {{ todo.place }}
+        </h3>
+        <p>
+          {{ todo.description }}
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
