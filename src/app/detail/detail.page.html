@@ -8,15 +8,15 @@
 </ion-header>
 
 <ion-content>
-  <ion-card>
+  <ion-card *ngIf="item">
     <ion-card-header>
-      <ion-card-subtitle>Place</ion-card-subtitle>
-      <ion-card-title>Name</ion-card-title>
+      <ion-card-subtitle> {{ item.place }}</ion-card-subtitle>
+      <ion-card-title>{{ item.name }}</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
       <ion-icon name="pin" slot="start"></ion-icon>
-      Description
+      {{ item.description }}
     </ion-card-content>
   </ion-card>
 </ion-content>

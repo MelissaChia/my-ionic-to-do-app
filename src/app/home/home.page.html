@@ -13,20 +13,40 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let todo of todos" routerLink="/detail/{{ todo.id }}">
-      <ion-avatar slot="start">
-        <img src="assets/tick.png" *ngIf="todo.completed" />
-        <img src="assets/wrong.png" *ngIf="!todo.completed" />
-      </ion-avatar>
-      <ion-label>
-        <h2>{{ todo.name }}</h2>
-        <h3>
-          {{ todo.place }}
-        </h3>
-        <p>
-          {{ todo.description }}
-        </p>
-      </ion-label>
-    </ion-item>
+    <ion-item-sliding *ngFor="let todo of todos; let i = index">
+      <ion-item>
+        <ion-avatar slot="start">
+          <img src="assets/tick.png" *ngIf="todo.completed" />
+          <img src="assets/wrong.png" *ngIf="!todo.completed" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ todo.name }}</h2>
+
+          <h3>
+            {{ todo.place }}
+          </h3>
+          <p>
+            {{ todo.description }}
+          </p>
+        </ion-label>
+        <ion-button fill="outline" slot="end" routerLink="/detail/{{ todo.id }}"
+          >View</ion-button
+        >
+      </ion-item>
+      <ion-item-options>
+        <ion-item-option color="primary" (click)="notDone(todo)">
+          <ion-icon slot="start" name="undo"></ion-icon>
+          Undo
+        </ion-item-option>
+        <ion-item-option color="success" (click)="markDone(todo)">
+          <ion-icon slot="start" name="checkmark"></ion-icon>
+          Mark Done
+        </ion-item-option>
+        <ion-item-option color="secondary" (click)="delete(i)">
+          <ion-icon slot="start" name="trash"></ion-icon>
+          Delete
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
